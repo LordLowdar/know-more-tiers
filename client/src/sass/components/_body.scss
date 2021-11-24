@@ -1,0 +1,11 @@
+@use '../abstracts' as *;
+
+.app-body {
+  flex: 1 1 100%;
+  padding: 3rem;
+  padding-top: 0;
+  color: #000;
+  background-color: aqua;
+  width: 100%;
+  background-image: url('../../img/abstract98362664.jpg');
+}
