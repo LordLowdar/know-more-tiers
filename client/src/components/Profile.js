@@ -1,6 +1,6 @@
 import React from 'react';
 
-//Footer component
+//profile component
 function Profile() {
 
   return (

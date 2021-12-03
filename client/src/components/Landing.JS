@@ -1,6 +1,6 @@
 import React from 'react';
 
-//Footer component
+//landing component
 function Landing() {
 
   return (

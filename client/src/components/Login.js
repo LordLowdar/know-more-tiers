@@ -1,6 +1,6 @@
 import React from 'react';
 
-//Footer component
+//login component
 function Login() {
 
   return (
