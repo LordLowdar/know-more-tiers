@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import '../sass/pages/_tierlist.scss';
 import { DragDropContext } from 'react-beautiful-dnd';
+import initialData from './initial-data'
 import Column from './Column.js'
 
 function TierList() {
@@ -75,14 +77,16 @@ const [state, setState] = useState(initialData)
   };
 
   return (
+    <div className='tier-outer-container'>
     <DragDropContext onDragEnd={onDragEnd}>
       {state.columnOrder.map(columnId => {
         const column = state.columns[columnId];
         const tasks = column.taskIds.map(taskId => state.tasks[taskId]);
 
-        return <Column key={column.id} column={column} tasks={tasks} />;
+        return <Column className='tier-page-container' id={column.id} key={column.id} column={column} tasks={tasks} />;
       })}
     </DragDropContext>
+    </div>
   );
 }
 

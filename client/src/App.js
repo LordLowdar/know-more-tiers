@@ -1,12 +1,14 @@
 import './sass/App.scss';
 import { Counter } from './features/counter/counter';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import TierList from './components/TierList'
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <Counter />
+        <TierList />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
