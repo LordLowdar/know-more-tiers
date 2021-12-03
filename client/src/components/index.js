@@ -1,8 +1,7 @@
 import Column from './Column';
 import Footer from './Footer';
-import initialData from './initial-data';
-import Profile from './Profile';
-import Task from './Task';
 import TierList from './TierList';
+import initialData from './initial-data';
+import Task from './Task';
 
-export { Column, Footer, initialData, Profile, Task, TierList };
+export { Column, Footer, TierList, initialData, Task };

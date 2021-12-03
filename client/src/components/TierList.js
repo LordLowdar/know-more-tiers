@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import '../sass/pages/_tierlist.scss';
 import { DragDropContext } from 'react-beautiful-dnd';
 import initialData from './initial-data'
 import Column from './Column.js'

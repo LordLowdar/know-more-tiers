@@ -1,4 +1,5 @@
 import Landing from './Landing';
-import TierList from './TierList';
+import TierListPage from './TierListPage';
+import Profile from './Profile';
 
-export { Landing, TierList };
+export { Landing, TierListPage, Profile };

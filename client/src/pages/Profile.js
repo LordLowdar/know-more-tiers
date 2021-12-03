@@ -1,7 +1,7 @@
 import React from 'react';
 
 //profile component
-function Profile() {
+export default function Profile() {
 
   return (
 
@@ -10,5 +10,3 @@ function Profile() {
   );
   
 }
-
-export default Profile;
