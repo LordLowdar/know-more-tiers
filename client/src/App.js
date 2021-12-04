@@ -2,11 +2,14 @@ import './sass/App.scss';
 import { Counter } from './features/counter/counter';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import TierList from './components/TierList'
+import Navbar from './components/NavBar'
+
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <Navbar />
         <Counter />
         <TierList />
         <p>
