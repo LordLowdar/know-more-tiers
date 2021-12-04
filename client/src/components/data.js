@@ -1,4 +1,4 @@
-export const static_items = [
+const static_items = [
     {
       id: '1',
       content: "item 1 content",
@@ -79,4 +79,6 @@ export const static_items = [
       subItems: []
     },
   ];
+
+export default static_items
   

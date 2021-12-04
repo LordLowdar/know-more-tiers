@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import NestedList from "./NestedList";
-import { static_items } from "./data";
+import static_items from "./data";
 
 // a little function to help us with reordering the result
 
@@ -208,7 +208,7 @@ const reorder = (list, startIndex, endIndex) => {
                         >
                           Drag
                         </span>
-                        <ServiceCommandUnit
+                        <NestedList
                           subItems={item.subItems}
                           type={item.id}
                         />
