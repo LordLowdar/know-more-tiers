@@ -10,7 +10,15 @@ export default function LandingPage() {
       <Mission />
       <Hero />
       <NewList />
-      <Link to="/tierlist" className="btn">Create Tierlist</Link>
+      <Link to="/tierlist" className="btn">
+        Create Tierlist
+      </Link>
+      <Link to="/login" className="btn">
+        Login
+      </Link>
+      <Link to="/register" className="btn">
+        Register
+      </Link>
     </div>
-  )
+  );
 }
