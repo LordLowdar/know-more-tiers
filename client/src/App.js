@@ -1,5 +1,4 @@
 import './sass/App.scss';
-import { Counter } from './features/counter/counter';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { BrowserRouter as NavRouter, Routes, Route } from 'react-router-dom';
 import { Landing, Profile, TierListPage} from './pages';
@@ -15,7 +14,7 @@ export default function App() {
       <div className="App">
         <header className="App-header">
           <nav className="nav"><h1>NAV PLACEHOLDER</h1></nav>
-          <Counter />
+
           <NavRouter>
               <section className="main-content">
                 <Routes>
