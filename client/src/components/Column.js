@@ -1,5 +1,4 @@
 import React from 'react';
-import '../sass/pages/_tierlist.scss';
 import { Droppable } from 'react-beautiful-dnd';
 import Task from './Task';
 

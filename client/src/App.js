@@ -1,31 +1,33 @@
 import './sass/App.scss';
-import { Counter } from './features/counter/counter';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import TierList from './components/TierList'
-import Navbar from './components/NavBar'
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import { BrowserRouter as NavRouter, Routes, Route } from 'react-router-dom';
+import { Landing, Profile, TierListPage} from './pages';
+import Navbar from './components/NavBar';
 
+const client = new ApolloClient({
+  uri: '/graphql',
+  cache: new InMemoryCache(),
+});
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Navbar />
-        <Counter />
-        <TierList />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ApolloProvider client={client}>
+      <div className="App">
+        <header className="App-header">
+          <nav className="nav">
+            <Navbar />
+          </nav>
+          <NavRouter>
+              <section className="main-content">
+                <Routes>
+                  <Route exact path="/" element={<Landing />} />
+                  <Route exact path="/tierlist" element={<TierListPage />} />
+                  <Route exact path="/profile" element={<Profile />} />
+                </Routes>
+              </section>
+          </NavRouter>
+        </header>
+      </div>
+    </ApolloProvider>
   );
 }
-
-export default App;
