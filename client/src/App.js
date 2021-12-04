@@ -1,17 +1,9 @@
 import React from 'react';
-import './sass/App.scss'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  createHttpLink,
-} from '@apollo/client';
+import './sass/App.scss';
+import { ApolloClient, InMemoryCache, createHttpLink, ApolloProvider } from '@apollo/client';
+import { BrowserRouter as NavRouter, Routes, Route } from 'react-router-dom';
+import { Landing, Profile, TierListPage} from './pages';
 import { setContext } from '@apollo/client/link/context';
-
-import Home from './components/pages/Home';
-import Login from '.components/pages/Login';
-import Profile from './components/pages/Profile';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -28,27 +20,30 @@ const authLink = setContext((_, { headers }) => {
 });
 
 const client = new ApolloClient({
-  link: authLink.concat(httpLink),
+link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
 
-function App() {
+export default function App() {
   return (
     <ApolloProvider client={client}>
-      <Router>
-        <div>
-          <StoreProvider>
-            <Nav />
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/profile" component={Profile} />
-            </Switch>
-          </StoreProvider>
-        </div>
-      </Router>
+      <div className="App">
+        <header className="App-header">
+          <nav className="nav">
+            <h1>HEADER AREA</h1>
+            <h1>NAV PLACEHOLDER</h1>
+          </nav>
+          <NavRouter>
+              <section className="main-content">
+                <Routes>
+                  <Route exact path="/" element={<Landing />} />
+                  <Route exact path="/tierlist" element={<TierListPage />} />
+                  <Route exact path="/profile" element={<Profile />} />
+                </Routes>
+              </section>
+          </NavRouter>
+        </header>
+      </div>
     </ApolloProvider>
   );
 }
-
-export default App;
