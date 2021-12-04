@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { TierList } from '../../components';
+import { NewTierList } from '../../components';
 
 export default function NewList() {
   // const latestTierList = useSelector( state => state.tierList );
@@ -10,7 +10,7 @@ export default function NewList() {
       <h2>New Tierlist</h2>
       {/* Placing TierList Logic Placeholder for now */}
       <div>
-        <TierList />
+        <NewTierList />
       </div>
     </section>
   )

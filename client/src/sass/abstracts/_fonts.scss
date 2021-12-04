@@ -1,15 +1,17 @@
+@import url(https://fonts.googleapis.com/css2?family=Aldrich&family=Cinzel&family=Michroma&display=swap);
+
 // Font Families
-$apps-title: Impact;
-$apps-subtitle: 'Courier New', Courier, monospace;
-$cinzel-400: 'Cinzel', serif;
+$apps-title: 'Shadows Into Light', cursive;
+$apps-subtitle: 'Ubuntu', sans-serif;
+$aldrich: 'Aldrich', sans-serif;
 
 // Base Font Sizes
 $h1-default: 2.5rem;
 
 // Links Font Families
-$app-links: 'Courier New', Courier, monospace;
-$michroma: 'Michroma', sans-serif;
-$aldrich: 'Aldrich', sans-serif;
+$app-links: 'Varela Round', sans-serif;
+$ubuntu: 'Ubuntu', sans-serif;
+$shadows: 'Shadows Into Light', cursive;
 
 // Font Sizes
 $font-size: calc(10px + 2vmin);
@@ -18,13 +20,14 @@ $font-size: calc(10px + 2vmin);
 $about-p-font-size: 1.5rem;
 
 // Tech Font
-$tech-font-size: 2rem;
+$tier-font-size: 2rem;
 
 // Header Font
-$head-font-fam: $aldrich;
+$head-font-fam: $ubuntu;
 $head-font-size: $font-size;
 
 // Footer Font
+$footer-font-fam: $shadows;
 $footer-font-size: $font-size;
 
 // Card Font
@@ -33,3 +36,4 @@ $card-font-fam: $aldrich;
 
 // Button Font
 $btn-fnt: $aldrich;
+$card-font-fam: $ubuntu;
