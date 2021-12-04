@@ -1,7 +1,7 @@
-import Landing from './LandingPage';
+import LandingPage from './LandingPage';
 import TierListPage from './TierListPage';
-import Profile from './ProfilePage';
+import ProfilePage from './ProfilePage';
 import Login from './LoginPage';
 import Register from './RegisterPage';
 
-export { Landing, TierListPage, Profile, Login, Register };
+export { LandingPage, TierListPage, ProfilePage, Login, Register };
