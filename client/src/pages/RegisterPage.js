@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function register() {
+export default function RegisterPage() {
   return (
     <div className="base">
       <div className="header">Register</div>

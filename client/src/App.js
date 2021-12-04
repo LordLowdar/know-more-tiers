@@ -2,7 +2,7 @@ import React from 'react';
 import './sass/App.scss';
 import { ApolloClient, InMemoryCache, createHttpLink, ApolloProvider } from '@apollo/client';
 import { BrowserRouter as NavRouter, Routes, Route } from 'react-router-dom';
-import { LandingPage, ProfilePage, TierListPage, Login, Register } from './pages';
+import { LandingPage, ProfilePage, TierListPage, LoginPage, RegisterPage } from './pages';
 import { setContext } from '@apollo/client/link/context';
 
 const httpLink = createHttpLink({
@@ -39,8 +39,8 @@ export default function App() {
                 <Route exact path="/" element={<LandingPage />} />
                 <Route exact path="/tierlist" element={<TierListPage />} />
                 <Route exact path="/profile" element={<ProfilePage />} />
-                <Route exact path="/login" element={<Login />} />
-                <Route exact path="/register" element={<Register />} />
+                <Route exact path="/login" element={<LoginPage />} />
+                <Route exact path="/register" element={<RegisterPage />} />
               </Routes>
             </section>
           </NavRouter>
