@@ -1,7 +1,7 @@
 import React from 'react';
 
 //profile component
-export default function Profile() {
+export default function ProfilePage() {
 
   return (
 
