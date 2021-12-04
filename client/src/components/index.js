@@ -88,10 +88,10 @@ const reorder = (list, startIndex, endIndex) => {
           console.log(item.id)
           console.log(sourceParentId)
           
-          if (item.id === sourceParentId) {
+          if (parseInt(item.id) === sourceParentId) {
             console.log(reorderedSubItems)
             item.subItems = reorderedSubItems;
-          } 
+          }
 
           console.log(item.subItems)
           console.log(item)
@@ -116,9 +116,9 @@ const reorder = (list, startIndex, endIndex) => {
         newDestSubItems.splice(destIndex, 0, draggedItem);
 
         newItems = newItems.map(item => {
-          if (item.id === sourceParentId) {
+          if (parseInt(item.id) === sourceParentId) {
             item.subItems = newSourceSubItems;
-          } else if (item.id === destParentId) {
+          } else if (parseInt(item.id) === destParentId) {
             item.subItems = newDestSubItems;
           }
           return item;

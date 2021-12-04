@@ -1,7 +1,6 @@
 import './sass/App.scss';
 import { Counter } from './features/counter/counter';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import TierList from './components/questions'
 import Index from './components/index';
 
 function App() {
@@ -9,7 +8,6 @@ function App() {
     <div className="App">
       <header className="App-header">
         <Counter />
-        {/* <TierList /> */}
         <Index />
         <p>
           Edit <code>src/App.js</code> and save to reload.
