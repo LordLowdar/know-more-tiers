@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mission, Hero, NewList } from '../components';
 
-export default function Landing() {
+export default function LandingPage() {
   return (
     <div className="landing">
       <Mission />
