@@ -49,5 +49,5 @@ $app-bg-color-fb: $background-fade;
 $app-bg-color: rgba(0, 238, 255, 0.5);
 
 // Button Colors
-$btn-clr: white;
-$btn-bg-clr: black;
+$btn-clr: $darkest;
+$btn-bg-clr: $light;
