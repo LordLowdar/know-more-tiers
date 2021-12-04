@@ -13,8 +13,10 @@ export default function App() {
     <ApolloProvider client={client}>
       <div className="App">
         <header className="App-header">
-          <nav className="nav"><h1>NAV PLACEHOLDER</h1></nav>
-
+          <nav className="nav">
+            <h1>HEADER AREA</h1>
+            <h1>NAV PLACEHOLDER</h1>
+          </nav>
           <NavRouter>
               <section className="main-content">
                 <Routes>
