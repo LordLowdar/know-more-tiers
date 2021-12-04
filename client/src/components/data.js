@@ -10,13 +10,7 @@ export const static_items = [
         {
           id: '11',
           content: "SubItem 11 content"
-        }
-      ]
-    },
-    {
-      id: '2',
-      content: "item 2 content",
-      subItems: [
+        },
         {
           id: '20',
           content: "SubItem 20 content"
@@ -24,13 +18,7 @@ export const static_items = [
         {
           id: '21',
           content: "SubItem 21 content"
-        }
-      ]
-    },
-    {
-      id: '3',
-      content: "item 3 content",
-      subItems: [
+        },
         {
           id: '30',
           content: "SubItem 30 content"
@@ -38,13 +26,7 @@ export const static_items = [
         {
           id: '31',
           content: "SubItem 31 content"
-        }
-      ]
-    },
-    {
-      id: '4',
-      content: "item 4 content",
-      subItems: [
+        },
         {
           id: '40',
           content: "SubItem 40 content"
@@ -52,13 +34,7 @@ export const static_items = [
         {
           id: '41',
           content: "SubItem 41 content"
-        }
-      ]
-    },
-    {
-      id: '5',
-      content: "item 5 content",
-      subItems: [
+        },
         {
           id: '50',
           content: "SubItem 50 content"
@@ -66,13 +42,7 @@ export const static_items = [
         {
           id: '51',
           content: "SubItem 51 content"
-        }
-      ]
-    },
-    {
-      id: '6',
-      content: "item 6 content",
-      subItems: [
+        },
         {
           id: '60',
           content: "SubItem 60 content"
@@ -80,8 +50,33 @@ export const static_items = [
         {
           id: '61',
           content: "SubItem 61 content"
-        }
+        },
       ]
+    },
+    {
+      id: '2',
+      content: "item 2 content",
+      subItems: []
+    },
+    {
+      id: '3',
+      content: "item 3 content",
+      subItems: []
+    },
+    {
+      id: '4',
+      content: "item 4 content",
+      subItems: []
+    },
+    {
+      id: '5',
+      content: "item 5 content",
+      subItems: []
+    },
+    {
+      id: '6',
+      content: "item 6 content",
+      subItems: []
     },
   ];
   

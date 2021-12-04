@@ -133,6 +133,42 @@ const reorder = (list, startIndex, endIndex) => {
   }
 
   console.log(state.items)
+  const secondaryItems = state.items.map((item,index) => {
+    if(index === 0) {
+      return null;
+    }
+
+    return <Draggable key={item.id} draggableId={item.id} index={index}>
+                  {(provided, snapshot) => (
+                    <div>
+                      <div
+                        ref={provided.innerRef}
+                        {...provided.draggableProps}
+                        style={getItemStyle(
+                          snapshot.isDragging,
+                          provided.draggableProps.style
+                        )}
+                      >
+                        {item.content}
+                        <span
+                          {...provided.dragHandleProps}
+                          style={{
+                            display: "inline-block",
+                            margin: "0 10px",
+                            border: "1px solid #000"
+                          }}
+                        >
+                          Drag
+                        </span>
+                        <ServiceCommandUnit
+                          subItems={item.subItems}
+                          type={item.id}
+                        />
+                      </div>
+                      {provided.placeholder}
+                    </div>
+                  )}
+                </Draggable> });
 
   // Normally you would want to split things out into separate components.
   // But in this example everything is just done in one place for simplicity
@@ -142,10 +178,15 @@ const reorder = (list, startIndex, endIndex) => {
           {(provided, snapshot) => (
             <div
               ref={provided.innerRef}
-              style={getListStyle(snapshot.isDraggingOver)}
+              style={{...getListStyle(snapshot.isDraggingOver), display:'flex'}}
             >
-              {state.items.map((item, index) => (
-                <Draggable key={item.id} draggableId={item.id} index={index}>
+              
+              {state.items.map((item, index) => {
+                  if(index !== 0) {
+                    return null;
+                  }
+
+                  return <Draggable key={item.id} draggableId={item.id} index={index}>
                   {(provided, snapshot) => (
                     <div>
                       <div
@@ -176,7 +217,11 @@ const reorder = (list, startIndex, endIndex) => {
                     </div>
                   )}
                 </Draggable>
-              ))}
+            })}
+
+            <div>
+              {secondaryItems}
+            </div>
               {provided.placeholder}
             </div>
           )}
