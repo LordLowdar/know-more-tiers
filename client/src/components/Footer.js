@@ -1,14 +1,11 @@
 import React from 'react';
 
 //Footer component
-function Footer() {
+export default function Footer() {
 
   return (
-
-    <footer></footer>
-
+    <footer className="footer">
+      This is a footer with content
+    </footer>
   );
-  
 }
-
-export default Footer;

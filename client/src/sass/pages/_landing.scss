@@ -3,9 +3,13 @@
 .landing {
   display: flex;
   flex-flow: column nowrap;
+  padding: 1rem 0;
   width: 100%;
   justify-content: center;
   align-items: center;
+  color: $landing-clr;
+  background-color: $landing-bg;
+  
   .section {
     justify-content: center;
     align-items: center;

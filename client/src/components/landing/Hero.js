@@ -1,9 +1,10 @@
 import React from 'react';
+import hero from '../../img/abstract98362664.jpg';
 
-export default function NewList() {
+export default function Hero() {
   return (
-    <section>
-      <img src="" alt="PLACEHOLDER HERO" />
+    <section className="app-hero">
+      <img src={hero} alt="PLACEHOLDER HERO" />
     </section>
   )
 }

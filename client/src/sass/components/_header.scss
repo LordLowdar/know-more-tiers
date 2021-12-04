@@ -1,11 +1,6 @@
 @use '../abstracts' as *;
 
 .app-header {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 3rem;
   font-size: $head-font-size;
   font-family: $head-font-fam;
   color: $head-txt-clr;

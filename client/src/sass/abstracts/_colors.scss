@@ -3,6 +3,13 @@ $red: red;
 $light: aqua;
 $dark: black;
 
+// Theme Palette
+$theme-1: #6f2dbd;
+$theme-2: #a663cc;
+$theme-3: #b298dc;
+$theme-4: #b8d0eb;
+$theme-5: #b9faf8;
+
 // Header Colors
 $head-bg: black;
 $head-txt-clr: cyan;
@@ -20,9 +27,13 @@ $footer-txt-clr: cyan;
 $footer-bg: black;
 
 // App Colors
-$app-bg-color-fb: rgb(0, 0, 0);
-$app-bg-color: rgba(0, 238, 255, 0.5);
+$app-bg-color-fb: white;
+$app-bg-color: $theme-5;
 
 // Button Colors
-$btn-clr: white;
-$btn-bg-clr: black;
+$btn-clr: $theme-4;
+$btn-bg-clr: $theme-1;
+
+// Landing Colors
+$landing-bg: $theme-5;
+$landing-clr: $theme-2;

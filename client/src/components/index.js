@@ -8,6 +8,5 @@ import Task from './Task';
 // Landing Components
 import { Hero } from './landing';
 import { Mission } from './landing';
-import { NewList } from './landing';
 
-export { Column, Footer, TierList, initialData, Task, Hero, Mission, NewList };
+export { Column, Footer, TierList, initialData, Task, Hero, Mission };
