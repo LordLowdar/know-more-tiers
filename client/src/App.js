@@ -1,7 +1,7 @@
 import './sass/App.scss';
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 import { BrowserRouter as NavRouter, Routes, Route } from 'react-router-dom';
-import { Landing, Profile, TierListPage } from './pages';
+import { Landing, Profile, TierListPage, Login, Register } from './pages';
 
 const client = new ApolloClient({
   uri: '/graphql',
@@ -23,6 +23,8 @@ export default function App() {
                 <Route exact path="/" element={<Landing />} />
                 <Route exact path="/tierlist" element={<TierListPage />} />
                 <Route exact path="/profile" element={<Profile />} />
+                <Route exact path="/login" element={<Login />} />
+                <Route exact path="/register" element={<Register />} />
               </Routes>
             </section>
           </NavRouter>
