@@ -81,4 +81,3 @@ const static_items = [
   ];
 
 export default static_items
-  
