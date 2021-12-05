@@ -17,60 +17,56 @@ const getItemStyle = (isDragging, draggableStyle) => ({
   background: isDragging ? "lightgreen" : "grey",
   display: "inline-flex",
   padding: "10px",
-  margin: "0 10px 10px 0",
+  margin: "0",
   border: "1px solid grey",
+  height: '100px',
   // styles we need to apply on draggables
   ...draggableStyle
 });
 
-const getListStyle = isDraggingOver => ({
-  background: isDraggingOver ? "lightblue" : "lightgrey",
-  padding: grid,
-  margin: "10px 0"
-});
 
-export default function ServiceCommandUnit(props) {
+export default function NestedList(props) {
   // Normally you would want to split things out into separate components.
   // But in this example everything is just done in one place for simplicity
-    return (
-      <Droppable droppableId={props.type} type={`droppableSubItem`}>
-        {(provided, snapshot) => (
-          <div
-            ref={provided.innerRef}
-            style={getListStyle(snapshot.isDraggingOver)}
-          >
-            {props.subItems.map((item, index) => (
-              <Draggable key={item.id} draggableId={item.id} index={index}>
-                {(provided, snapshot) => (
-                  <div style={{ display: "flex" }}>
-                    <div
-                      ref={provided.innerRef}
-                      {...provided.draggableProps}
-                      style={getItemStyle(
-                        snapshot.isDragging,
-                        provided.draggableProps.style
-                      )}
-                    >
-                      {item.content}
-                      <span
-                        {...provided.dragHandleProps}
-                        style={{
-                          display: "block",
-                          margin: "0 10px",
-                          border: "1px solid #000"
-                        }}
-                      >
-                        Drag
-                      </span>
-                    </div>
-                    {provided.placeholder}
+
+  // styling sub-items container
+  const getListStyle = isDraggingOver => ({
+    background: isDraggingOver ? "lightblue" : '',
+    display: 'flex',
+    flexWrap: (props.index === 0) ? 'wrap' : '',
+    height: (props.index === 0) ? '620px' : ''
+  });
+
+  return (
+    <Droppable droppableId={props.type} type={`droppableSubItem`}>
+      {(provided, snapshot) => (
+        <div
+          ref={provided.innerRef}
+          style={getListStyle(snapshot.isDraggingOver)}
+        >
+          {props.subItems.map((item, index) => (
+            <Draggable key={item.id} draggableId={item.id} index={index}>
+              {(provided, snapshot) => (
+                <div style={{ display: "flex" }}>
+                  <div
+                    ref={provided.innerRef}
+                    {...provided.draggableProps}
+                    {...provided.dragHandleProps}
+                    style={getItemStyle(
+                      snapshot.isDragging,
+                      provided.draggableProps.style
+                    )}
+                  >
+                    {item.content}
                   </div>
-                )}
-              </Draggable>
-            ))}
-            {provided.placeholder}
-          </div>
-        )}
-      </Droppable>
-    );
-  }
+                  {provided.placeholder}
+                </div>
+              )}
+            </Draggable>
+          ))}
+          {provided.placeholder}
+        </div>
+      )}
+    </Droppable>
+  );
+}
