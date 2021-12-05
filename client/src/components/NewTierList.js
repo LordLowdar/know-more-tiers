@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import NestedList from "./NestedList";
+import Rows from "./Rows"
 import static_items from "./data";
 
 // a little function to help us with reordering the result
@@ -39,11 +40,11 @@ const reorder = (list, startIndex, endIndex) => {
   const getListStyle = isDraggingOver => ({
     background: isDraggingOver ? "lightblue" : "lightgrey",
     padding: grid,
-    width: 200
+    width: 200,
   });
 
   function onDragEnd(result) {
-    // dropped outside the list
+
     console.log(result);
 
     if (!result.destination) {
@@ -53,12 +54,14 @@ const reorder = (list, startIndex, endIndex) => {
     const sourceIndex = result.source.index;
     const destIndex = result.destination.index;
 
+    // dropping outer item
     if (result.type === "droppableItem") {
       const items = reorder(state.items, sourceIndex, destIndex);
       console.log(items)
       console.log({items})
       setState({items});
 
+    // dropping sub items
     } else if (result.type === "droppableSubItem") {
       const itemSubItemMap = state.items.reduce((acc, item) => {
         acc[item.id] = item.subItems;
@@ -74,7 +77,7 @@ const reorder = (list, startIndex, endIndex) => {
       let newItems = [...state.items];
       console.log(newItems)
 
-      /** In this case subItems are reOrdered inside same Parent */
+      // reordering sub-items inside the same parent
       if (sourceParentId === destParentId) {
         const reorderedSubItems = reorder(
           sourceSubItems,
@@ -132,43 +135,14 @@ const reorder = (list, startIndex, endIndex) => {
     }
   }
 
-  console.log(state.items)
+  // function rendering tier list rankings
   const secondaryItems = state.items.map((item,index) => {
     if(index === 0) {
       return null;
     }
 
-    return <Draggable key={item.id} draggableId={item.id} index={index}>
-                  {(provided, snapshot) => (
-                    <div>
-                      <div
-                        ref={provided.innerRef}
-                        {...provided.draggableProps}
-                        style={getItemStyle(
-                          snapshot.isDragging,
-                          provided.draggableProps.style
-                        )}
-                      >
-                        {item.content}
-                        <span
-                          {...provided.dragHandleProps}
-                          style={{
-                            display: "inline-block",
-                            margin: "0 10px",
-                            border: "1px solid #000"
-                          }}
-                        >
-                          Drag
-                        </span>
-                        <NestedList
-                          subItems={item.subItems}
-                          type={item.id}
-                        />
-                      </div>
-                      {provided.placeholder}
-                    </div>
-                  )}
-                </Draggable> });
+    return <Rows key={item.id} draggableId={item.id} index={index} item={item}/>
+ });
 
   // Normally you would want to split things out into separate components.
   // But in this example everything is just done in one place for simplicity
@@ -178,7 +152,7 @@ const reorder = (list, startIndex, endIndex) => {
           {(provided, snapshot) => (
             <div
               ref={provided.innerRef}
-              style={{...getListStyle(snapshot.isDraggingOver), display:'flex'}}
+              style={{...getListStyle(snapshot.isDraggingOver), display:'flex', height: '700px', width: '-webkit-fill-available', position: 'absolute', left: 0, right: 0}}
             >
               
               {state.items.map((item, index) => {
@@ -186,39 +160,8 @@ const reorder = (list, startIndex, endIndex) => {
                     return null;
                   }
 
-                  return <Draggable key={item.id} draggableId={item.id} index={index}>
-                  {(provided, snapshot) => (
-                    <div>
-                      <div
-                        ref={provided.innerRef}
-                        {...provided.draggableProps}
-                        style={getItemStyle(
-                          snapshot.isDragging,
-                          provided.draggableProps.style
-                        )}
-                      >
-                        {item.content}
-                        <span
-                          {...provided.dragHandleProps}
-                          style={{
-                            display: "inline-block",
-                            margin: "0 10px",
-                            border: "1px solid #000"
-                          }}
-                        >
-                          Drag
-                        </span>
-                        <NestedList
-                          subItems={item.subItems}
-                          type={item.id}
-                        />
-                      </div>
-                      {provided.placeholder}
-                    </div>
-                  )}
-                </Draggable>
+                  return <Rows key={item.id} draggableId={item.id} index={index} item={item}/>
             })}
-
             <div>
               {secondaryItems}
             </div>
