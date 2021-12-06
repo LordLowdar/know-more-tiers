@@ -1,4 +1,3 @@
-import React from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 const grid = 8;
@@ -6,12 +5,12 @@ const grid = 8;
 const getItemStyle = (isDragging, draggableStyle) => ({
   // some basic styles to make the items look a bit nicer
   userSelect: "none",
-  padding: grid * 2,
-  margin: `0 10px 10px 0`,
+  // padding: grid * 2,
+  // margin: `0 10px 10px 0`,
 
-  display: "inline-flex",
+  // display: "inline-flex",
   width: "120px",
-  padding: "10px",
+  // padding: "10px",
 
   // change background colour if dragging
   background: isDragging ? "lightgreen" : "grey",

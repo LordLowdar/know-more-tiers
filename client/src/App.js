@@ -1,4 +1,3 @@
-import React from 'react';
 import './sass/App.scss';
 import { ApolloClient, InMemoryCache, createHttpLink, ApolloProvider } from '@apollo/client';
 import { BrowserRouter as NavRouter, Routes, Route } from 'react-router-dom';
