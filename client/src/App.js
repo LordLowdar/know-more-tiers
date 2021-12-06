@@ -4,7 +4,8 @@ import { ApolloClient, InMemoryCache, createHttpLink, ApolloProvider } from '@ap
 import { BrowserRouter as NavRouter, Routes, Route } from 'react-router-dom';
 import { LandingPage, ProfilePage, TierListPage, LoginPage, RegisterPage } from './pages';
 import { setContext } from '@apollo/client/link/context';
-import { Footer } from './components/Footer';
+import NavBar from './components/NavBar';
+import Footer from './components/Footer';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -31,7 +32,7 @@ export default function App() {
       <div className="App">
         <header className="App-header">
           <nav className="nav">
-            <Navbar />
+            <NavBar />
           </nav>
           <NavRouter>
             <section className="main-content">

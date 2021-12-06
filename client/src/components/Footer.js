@@ -5,8 +5,7 @@ function Footer() {
 
   return (
 
-    <footer style={{color: "6F2DBD"}} >
-      
+    <footer >
     </footer>
 
   );

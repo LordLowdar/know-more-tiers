@@ -10,7 +10,7 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 
-export default function Navbar() {
+function Navbar() {
     const [open, setOpen] = React.useState(false);
 
     const toggleDrawer = (event) => {
@@ -96,3 +96,5 @@ export default function Navbar() {
         </div>
     );
 }
+
+export default Navbar
