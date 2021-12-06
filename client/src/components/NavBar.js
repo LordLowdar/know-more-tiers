@@ -56,7 +56,7 @@ export default function Navbar() {
         <div>
 
 
-            <Button onClick={toggleDrawer}>top</Button>
+            <Button style ={{width:"100vw"}} onClick={toggleDrawer}>Menu</Button>
             <Drawer
                 anchor="top"
                 open={open}
