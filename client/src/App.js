@@ -1,11 +1,27 @@
+import React from 'react';
 import './sass/App.scss';
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import { ApolloClient, InMemoryCache, createHttpLink, ApolloProvider } from '@apollo/client';
 import { BrowserRouter as NavRouter, Routes, Route } from 'react-router-dom';
-import { Landing, Profile, TierListPage} from './pages';
-import Navbar from './components/NavBar';
+import { LandingPage, ProfilePage, TierListPage, LoginPage, RegisterPage } from './pages';
+import { setContext } from '@apollo/client/link/context';
+import { Footer } from './components/Footer';
+
+const httpLink = createHttpLink({
+  uri: '/graphql',
+});
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
 
 const client = new ApolloClient({
-  uri: '/graphql',
+link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
 
@@ -18,16 +34,21 @@ export default function App() {
             <Navbar />
           </nav>
           <NavRouter>
-              <section className="main-content">
-                <Routes>
-                  <Route exact path="/" element={<Landing />} />
-                  <Route exact path="/tierlist" element={<TierListPage />} />
-                  <Route exact path="/profile" element={<Profile />} />
-                </Routes>
-              </section>
+            <section className="main-content">
+              <Routes>
+                <Route exact path="/" element={<LandingPage />} />
+                <Route exact path="/tierlist" element={<TierListPage />} />
+                <Route exact path="/profile" element={<ProfilePage />} />
+                <Route exact path="/login" element={<LoginPage />} />
+                <Route exact path="/register" element={<RegisterPage />} />
+              </Routes>
+            </section>
           </NavRouter>
         </header>
+        <Footer />
       </div>
     </ApolloProvider>
+  
+
   );
 }
