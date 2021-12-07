@@ -1,5 +1,3 @@
-import React from 'react';
-
 //profile component
 export default function ProfilePage() {
 

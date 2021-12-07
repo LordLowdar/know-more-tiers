@@ -1,4 +1,3 @@
-import React from 'react';
 import { NewTierList } from '..';
 
 export default function NewList() {

@@ -1,5 +1,3 @@
-import React from 'react';
-
 //login component
 function Login() {
 

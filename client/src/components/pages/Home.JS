@@ -1,5 +1,3 @@
-import React from 'react';
-
 //landing component
 function Landing() {
 
