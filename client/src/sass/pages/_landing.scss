@@ -11,3 +11,35 @@
     align-items: center;
   }
 }
+
+.demo-container {
+  width: 100%;
+}
+
+.section-1, .section-2, .section-3 {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  justify-items: center;
+}
+
+@media screen and (max-width: 1024px) {
+  .section-1, .section-2, .section-3 {
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .section-1, .section-2, .section-3 {
+    display: grid;
+    grid-template-columns: 100%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .section-1, .section-2, .section-3 {
+    display: grid;
+    grid-template-columns: 100%;
+    justify-content: center;
+  }
+}

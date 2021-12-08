@@ -8,5 +8,6 @@ import initialData from './data';
 import { Hero } from './landing';
 import { Mission } from './landing';
 import { NewList } from './landing';
+import { Demo } from './landing';
 
-export { NewTierList, Footer, NestedList, initialData, Hero, Mission, NewList };
+export { NewTierList, Footer, NestedList, initialData, Hero, Mission, NewList, Demo };
