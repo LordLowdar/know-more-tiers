@@ -38,7 +38,7 @@ const reorder = (list, startIndex, endIndex) => {
   });
   
   const getListStyle = isDraggingOver => ({
-    background: isDraggingOver ? "lightblue" : "lightgrey",
+    background: isDraggingOver ? "lightblue" : "grey",
     padding: grid,
     width: 200,
   });
