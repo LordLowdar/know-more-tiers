@@ -1,15 +1,8 @@
-#A {
-    background-color: orange;
+#S, #A, #B, #C, #D {
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
 }
 
-#B {
-    background-color: yellow;
-}
-
-#C {
-    background-color: green;
-}
-
-#D {
-    background-color: blue;
-}
