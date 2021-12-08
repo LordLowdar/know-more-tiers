@@ -62,7 +62,7 @@ userSchema.pre('findOneAndUpdate', async function (next) {
   ))
     const saltRounds = 10;
     const newPass = await bcrypt.hash(user.password, saltRounds);
-
+    console.log(newPass)
     user.password = newPass
     user.save()
 
