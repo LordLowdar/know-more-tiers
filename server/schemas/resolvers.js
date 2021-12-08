@@ -80,6 +80,7 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+    // Allow a user to update their profile information, without changing tier list.
     updateUser: async (parent, {firstName, lastName, username, email, password}, context) => {
       if (context.user){
         return User.findOneAndUpdate(
