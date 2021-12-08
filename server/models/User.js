@@ -8,12 +8,11 @@ const userSchema = new Schema(
     firstName: {
       type: String,
       required: true,
-      unique: true,
     },
     lastName: {
       type: String,
       required: true,
-      unique: true,
+  
     },
     username: {
       type: String,
@@ -30,7 +29,9 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    tierlist: Tierlist.schema
+    tierlist: {
+      type: Tierlist.schema,
+      default: new Tierlist}
   },
   // set this to use virtual below
   {
