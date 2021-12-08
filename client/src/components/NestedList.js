@@ -3,22 +3,17 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 const grid = 8;
 
 const getItemStyle = (isDragging, draggableStyle) => ({
-  // some basic styles to make the items look a bit nicer
+  // keeps styling of sub-items for tier list
   userSelect: "none",
-  // padding: grid * 2,
-  // margin: `0 10px 10px 0`,
-
-  // display: "inline-flex",
+  padding: grid * 2,
+  display: "inline-flex",
   width: "120px",
-  // padding: "10px",
 
   // change background colour if dragging
-  background: isDragging ? "lightgreen" : "grey",
-  display: "inline-flex",
-  padding: "10px",
+  background: isDragging ? "lightgreen" : "#a17fd5",
   margin: "0",
   border: "1px solid grey",
-  height: '100px',
+  height: '120px',
   // styles we need to apply on draggables
   ...draggableStyle
 });
@@ -32,8 +27,11 @@ export default function NestedList(props) {
   const getListStyle = isDraggingOver => ({
     background: isDraggingOver ? "lightblue" : '',
     display: 'flex',
+    justifyContent: 'space-between',
+    alignContent: 'flex-around',
     flexWrap: (props.index === 0) ? 'wrap' : '',
-    height: (props.index === 0) ? '620px' : ''
+    height: (props.index === 0) ? '620px' : '',
+    padding: (props.index === 0) ? '20px' : ''
   });
 
   return (
