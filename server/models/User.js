@@ -1,8 +1,20 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
+const Interest = require('./Interest')
+const Tierlist = require('./TierList')
 
 const userSchema = new Schema(
   {
+    firstName: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    lastName: {
+      type: String,
+      required: true,
+      unique: true,
+    },
     username: {
       type: String,
       required: true,
@@ -18,6 +30,7 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    tierlist: Tierlist.schema
   },
   // set this to use virtual below
   {
