@@ -3,12 +3,15 @@ import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
 import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+import HomeIcon from '@mui/icons-material/Home';
+import ViewListIcon from '@mui/icons-material/ViewList';
+import LoginIcon from '@mui/icons-material/Login';
+import LockOpenIcon from '@mui/icons-material/LockOpen';
+import { Link } from 'react-router-dom';
+
 
 function Navbar() {
     const [open, setOpen] = React.useState(false);
@@ -21,42 +24,11 @@ function Navbar() {
         setOpen(!open);
     };
 
-    const list = () => (
-        <Box
-            sx={{ width: "auto" }}
-            role="presentation"
-            onClick={toggleDrawer}
-            onKeyDown={toggleDrawer}
-        >
-            <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-            </List>
-            <Divider />
-            <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-            </List>
-        </Box>
-    );
-
     return (
         <div>
 
 
-            <Button style ={{width:"100vw"}} onClick={toggleDrawer}>Menu</Button>
+            <Button style={{ width: "100vw", backgroundColor: "#a663cc", color: "black" }} onClick={toggleDrawer}>Menu</Button>
             <Drawer
                 anchor="top"
                 open={open}
@@ -69,25 +41,38 @@ function Navbar() {
                     onKeyDown={toggleDrawer}
                 >
                     <List>
-                        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                            <ListItem button key={text}>
+                        <Link to="/">
+                            <ListItem button key={'Home'}>
                                 <ListItemIcon>
-                                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                                    <HomeIcon />
                                 </ListItemIcon>
-                                <ListItemText primary={text} />
+                                <ListItemText primary={'Home'} />
                             </ListItem>
-                        ))}
-                    </List>
-                    <Divider />
-                    <List>
-                        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                            <ListItem button key={text}>
+                        </Link>
+                        <Link to="/tierlist">
+                            <ListItem button key={'Tier List'}>
                                 <ListItemIcon>
-                                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                                    <ViewListIcon />
                                 </ListItemIcon>
-                                <ListItemText primary={text} />
+                                <ListItemText primary={'Tier List'} />
                             </ListItem>
-                        ))}
+                        </Link>
+                        <Link to="/login">
+                            <ListItem button key={'Login'}>
+                                <ListItemIcon>
+                                    <LoginIcon />
+                                </ListItemIcon>
+                                <ListItemText primary={'Login'} />
+                            </ListItem>
+                        </Link>
+                        <Link to="/register">
+                            <ListItem button key={'Register'}>
+                                <ListItemIcon>
+                                    <LockOpenIcon />
+                                </ListItemIcon>
+                                <ListItemText primary={'Register'} />
+                            </ListItem>
+                        </Link>
                     </List>
                 </Box>
             </Drawer>
