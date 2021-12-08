@@ -5,7 +5,6 @@ import { Mission, Hero, NewList } from '../components';
 export default function LandingPage() {
   return (
     <div className="landing">
-      <Mission />
       <Hero />
       <NewList />
       <Link to="/tierlist" className="btn">

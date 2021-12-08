@@ -31,10 +31,8 @@ export default function App() {
     <ApolloProvider client={client}>
       <div className="App">
         <header className="App-header">
-          <nav className="nav">
-            <NavBar />
-          </nav>
           <NavRouter>
+            <NavBar />
             <section className="main-content">
               <Routes>
                 <Route exact path="/" element={<LandingPage />} />
