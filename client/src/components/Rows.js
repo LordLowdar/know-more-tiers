@@ -21,7 +21,17 @@ export default function Rows(props) {
 
     // styles we need to apply on draggables
     ...draggableStyle
-  });
+  });  
+
+
+
+  // function setRankingStyle() {
+  //   if (props.index === 1) {
+  //     document.querySelector('.ranking-style').style.backgroundColor = 'red';
+  //   }
+  // };
+
+  // setRankingStyle();
 
   return (
     <Draggable key={props.key} draggableId={props.draggableId} index={props.index} item={props.item}>
@@ -35,7 +45,9 @@ export default function Rows(props) {
               provided.draggableProps.style
             )}
           >
-            {props.item.content}
+            <div id={props.item.content}>
+              {props.item.content}
+            </div>
             <NestedList
               index={props.index}
               subItems={props.item.subItems}

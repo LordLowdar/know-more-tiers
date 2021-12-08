@@ -1,7 +1,7 @@
 const static_items = [
     {
       id: '1',
-      content: "item 1 content",
+      content: "Add Your Interests",
       subItems: [
         {
           id: '10',
@@ -12,70 +12,70 @@ const static_items = [
           content: "SubItem 11 content"
         },
         {
-          id: '20',
+          id: '12',
           content: "SubItem 20 content"
         },
         {
-          id: '21',
+          id: '13',
           content: "SubItem 21 content"
         },
         {
-          id: '30',
+          id: '14',
           content: "SubItem 30 content"
         },
         {
-          id: '31',
+          id: '15',
           content: "SubItem 31 content"
         },
         {
-          id: '40',
+          id: '16',
           content: "SubItem 40 content"
         },
         {
-          id: '41',
+          id: '17',
           content: "SubItem 41 content"
         },
         {
-          id: '50',
+          id: '18',
           content: "SubItem 50 content"
         },
         {
-          id: '51',
+          id: '19',
           content: "SubItem 51 content"
         },
         {
-          id: '60',
+          id: '20',
           content: "SubItem 60 content"
         },
         {
-          id: '61',
+          id: '21',
           content: "SubItem 61 content"
         },
       ]
     },
     {
       id: '2',
-      content: "item 2 content",
+      content: "S",
       subItems: []
     },
     {
       id: '3',
-      content: "item 3 content",
+      content: "A",
       subItems: []
     },
     {
       id: '4',
-      content: "item 4 content",
+      content: "B",
       subItems: []
     },
     {
       id: '5',
-      content: "item 5 content",
+      content: "C",
       subItems: []
     },
     {
       id: '6',
-      content: "item 6 content",
+      content: "D",
       subItems: []
     },
   ];
