@@ -4,7 +4,8 @@
   position: relative;
   text-align: center;
   width: 100%;
-  max-height: 40vh;
+  max-height: 45vh;
+  height: 400px;
   color: $hero-text-clr;
   background-color: $hero-bg;
   overflow: hidden;
@@ -12,13 +13,16 @@
 
 .app-heading {
   position: absolute;
-  top: 5%;
-  left: 5%
+  top: 30%;
+  left: 30%
 }
 
 .app-hero img {
   width: 100%;
   object-fit: cover;
-  object-position: center bottom;
+  object-position: center -100px;
   margin: 0 auto;
+  position: absolute;
+  top: 0px;
+  z-index: -1;
 }

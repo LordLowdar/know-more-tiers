@@ -1,13 +1,12 @@
 // Main Components
-import Column from './Column';
+import NewTierList from './NewTierList';
 import Footer from './Footer';
-import TierList from './TierList';
-import initialData from './initial-data';
-import Task from './Task';
+import NestedList from './NestedList';
+import initialData from './data';
 
 // Landing Components
 import { Hero } from './landing';
 import { Mission } from './landing';
 import { NewList } from './landing';
 
-export { Column, Footer, TierList, initialData, Task, Hero, Mission, NewList };
+export { NewTierList, Footer, NestedList, initialData, Hero, Mission, NewList };

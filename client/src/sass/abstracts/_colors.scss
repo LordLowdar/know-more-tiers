@@ -52,3 +52,27 @@ $app-bg-color: rgba(0, 238, 255, 0.5);
 $btn-clr: white;
 $btn-bg-clr: black;
 $red: red;
+
+$btn-clr: $darkest;
+$btn-bg-clr: $light;
+
+// Tier Ranks Styling
+#S {
+  background-color: $darkest;
+}
+
+#A {
+  background-color: $dark;
+}
+
+#B {
+  background-color: $lighter;
+}
+
+#C {
+  background-color: $light;
+}
+
+#D {
+  background-color: $lightest;
+}

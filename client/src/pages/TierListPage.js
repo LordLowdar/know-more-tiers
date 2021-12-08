@@ -1,10 +1,10 @@
 import React from 'react';
-import { TierList } from '../components';
+import { NewTierList } from '../components';
 
 export default function TierListPage() {
   return (
     <div>
-      <TierList />
+      <NewTierList />
     </div>
   )
 }

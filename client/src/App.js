@@ -2,8 +2,10 @@ import React from 'react';
 import './sass/App.scss';
 import { ApolloClient, InMemoryCache, createHttpLink, ApolloProvider } from '@apollo/client';
 import { BrowserRouter as NavRouter, Routes, Route } from 'react-router-dom';
-import { Landing, Profile, TierListPage} from './pages';
+import { LandingPage, ProfilePage, TierListPage, LoginPage, RegisterPage } from './pages';
 import { setContext } from '@apollo/client/link/context';
+import NavBar from './components/NavBar';
+import Footer from './components/Footer';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -29,21 +31,23 @@ export default function App() {
     <ApolloProvider client={client}>
       <div className="App">
         <header className="App-header">
-          <nav className="nav">
-            <h1>HEADER AREA</h1>
-            <h1>NAV PLACEHOLDER</h1>
-          </nav>
           <NavRouter>
-              <section className="main-content">
-                <Routes>
-                  <Route exact path="/" element={<Landing />} />
-                  <Route exact path="/tierlist" element={<TierListPage />} />
-                  <Route exact path="/profile" element={<Profile />} />
-                </Routes>
-              </section>
+            <NavBar />
+            <section className="main-content">
+              <Routes>
+                <Route exact path="/" element={<LandingPage />} />
+                <Route exact path="/tierlist" element={<TierListPage />} />
+                <Route exact path="/profile" element={<ProfilePage />} />
+                <Route exact path="/login" element={<LoginPage />} />
+                <Route exact path="/register" element={<RegisterPage />} />
+              </Routes>
+            </section>
           </NavRouter>
         </header>
+        <Footer />
       </div>
     </ApolloProvider>
+  
+
   );
 }
