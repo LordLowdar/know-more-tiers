@@ -1,5 +1,5 @@
 import React from 'react';
-import wallpaper from '../../assets/friend-group.jpg'
+import wallpaper from '../../assets/triangle.png'
 
 export default function NewList() {
   return (

@@ -5,22 +5,22 @@
   text-align: center;
   width: 100%;
   max-height: 45vh;
-  height: 400px;
+  height: 500px;
   color: $hero-text-clr;
   background-color: $hero-bg;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .app-heading {
   position: absolute;
-  top: 30%;
-  left: 30%
 }
 
 .app-hero img {
+  object-position: center bottom;
   width: 100%;
-  object-fit: cover;
-  object-position: center -100px;
   margin: 0 auto;
   position: absolute;
   top: 0px;

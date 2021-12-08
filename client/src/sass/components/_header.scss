@@ -21,6 +21,12 @@
   }
 }
 
+.mission-statement {
+  height: 300px;
+  width: 100%;
+  background-color: $dark;
+}
+
 @media screen and (max-width: 1024px) {
   .app-header {
     flex-flow: column wrap;
