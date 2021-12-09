@@ -25,10 +25,9 @@ function Navbar() {
     };
 
     return (
-        <div>
+        <div className="navbar">
 
-
-            <Button style={{ width: "100vw", backgroundColor: "#a663cc", color: "black" }} onClick={toggleDrawer}>Menu</Button>
+            <Button className="navigation" onClick={toggleDrawer}>Menu</Button>
             <Drawer
                 anchor="top"
                 open={open}
@@ -42,7 +41,7 @@ function Navbar() {
                 >
                     <List>
                         <Link to="/">
-                            <ListItem button key={'Home'}>
+                            <ListItem button key={'Home'} style={{ textDecoration: "none" }}>
                                 <ListItemIcon>
                                     <HomeIcon />
                                 </ListItemIcon>
