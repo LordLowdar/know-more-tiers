@@ -1,11 +1,102 @@
-import React from 'react';
-import wallpaper from '../../assets/triangle.png'
+import React, { useEffect } from 'react';
+import wallpaper from '../../assets/blue-network.jpg'
+import Particles from 'react-tsparticles';
 
-export default function NewList() {
+export default function Hero() {
+
+  const particlesInit = (main) => {
+    console.log(main);
+  };
+  const particlesLoaded = (container) => {
+    console.log(container);
+  };
+
   return (
     <section className="app-hero">
-      <h1 className="app-heading">Connecting people together <br />through the things that <br />bring people together</h1>
-      <img src={wallpaper} alt="PLACEHOLDER HERO" />
+      <h1 className="app-heading">Connecting people <br />together through the things <br />we all have in common</h1>
+      <img src={wallpaper} alt="placeholder"></img>
+      {/* <Particles
+      id="tsparticles"
+      init={particlesInit}
+      loaded={particlesLoaded}
+      options={{
+        background: {
+          color: {
+            value: "#0d47a1",
+          },
+        },
+        fpsLimit: 60,
+        interactivity: {
+          events: {
+            onClick: {
+              enable: true,
+              mode: "push",
+            },
+            onHover: {
+              enable: true,
+              mode: "repulse",
+            },
+            resize: true,
+          },
+          modes: {
+            bubble: {
+              distance: 400,
+              duration: 2,
+              opacity: 0.8,
+              size: 40,
+            },
+            push: {
+              quantity: 4,
+            },
+            repulse: {
+              distance: 200,
+              duration: 0.4,
+            },
+          },
+        },
+        particles: {
+          color: {
+            value: "#ffffff",
+          },
+          links: {
+            color: "#ffffff",
+            distance: 150,
+            enable: true,
+            opacity: 0.5,
+            width: 1,
+          },
+          collisions: {
+            enable: true,
+          },
+          move: {
+            direction: "none",
+            enable: true,
+            outMode: "bounce",
+            random: false,
+            speed: 6,
+            straight: false,
+          },
+          number: {
+            density: {
+              enable: true,
+              value_area: 800,
+            },
+            value: 80,
+          },
+          opacity: {
+            value: 0.5,
+          },
+          shape: {
+            type: "circle",
+          },
+          size: {
+            random: true,
+            value: 5,
+          },
+        },
+        detectRetina: true,
+      }}
+    /> */}
     </section>
   )
 }
