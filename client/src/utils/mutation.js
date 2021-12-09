@@ -21,3 +21,12 @@ export const LOGIN = gql`
     }
   }
 `;
+
+export const ADD_INTEREST = gql`
+  mutation addInterest($input: InterestInput!) {
+    addInterest(input: $input) {
+      token
+      interest
+    }
+  }
+`;

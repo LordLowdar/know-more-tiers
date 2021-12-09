@@ -8,23 +8,27 @@ const typeDefs = gql`
     username: String
     email: String
     password: String
-    tierlist: [Tier]
+    tierlist: [Tierlist]
   }
 
-  type Tier {
-    rank: String
+  type Tierlist {
+    id: ID
     interests: [Interest]
   }
 
   type Interest {
     id: ID,
-    content: String,
+    tier: Int
+    rank: Int
+    content: String
     image: String
   }
 
-  input interestInput {
-    id: ID,
-    content: String,
+  input InterestInput {
+    id: ID
+    tier: Int
+    rank: Int
+    content: String
     image: String
   }
 
@@ -42,34 +46,35 @@ const typeDefs = gql`
 
   type Mutation {
     addUser(
-      firstName: String!, 
-      lastName: String!, 
-      username: String!, 
-      email: String!, 
+      firstName: String!
+      lastName: String!
+      username: String!
+      email: String!
       password: String!): Auth
 
     login(
-      email: String!, 
+      email: String!
       password: String!): Auth
     
-      
     addTierlist(
-      rank: String!,
-      interests: [interestInput]
+      interests: [InterestInput]
     ): User
+
+    addInterest(
+      input: InterestInput
+    ): Interest
 
     removeUser: User
 
     removeTierlist: User
 
     updateUser(
-      firstName: String, 
-      lastName: String, 
-      username: String, 
-      email: String, 
+      firstName: String
+      lastName: String
+      username: String
+      email: String
       password: String): User
   }
-
 `;
 
 module.exports = typeDefs;
