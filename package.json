@@ -26,8 +26,11 @@
     "@mui/icons-material": "^5.2.0",
     "@mui/material": "^5.2.2",
     "@reduxjs/toolkit": "^1.6.2",
+    "particlesjs": "^2.2.3",
+    "react-particles-js": "^3.6.0",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.0.2",
+    "react-tsparticles": "^1.37.5",
     "styled-components": "^5.3.3"
   },
   "devDependencies": {
