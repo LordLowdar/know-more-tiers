@@ -5,15 +5,20 @@ const typeDefs = gql`
     _id: ID
     firstName: String
     lastName: String
-    username: String
-    email: String
-    password: String
+    username: String!
+    email: String!
+    password: String!
     tierlist: [Tierlist]
   }
 
   type Tierlist {
     id: ID
     interests: [Interest]
+  }
+
+  input TierlistInput {
+    id: ID
+    interests: [InterestInput]
   }
 
   type Interest {
@@ -56,8 +61,8 @@ const typeDefs = gql`
       email: String!
       password: String!): Auth
     
-    addTierlist(
-      interests: [InterestInput]
+    addUserTierlist(
+      tierlist: [TierlistInput]
     ): User
 
     addInterest(
@@ -74,6 +79,14 @@ const typeDefs = gql`
       username: String
       email: String
       password: String): User
+
+    addUserInterest(
+      interests: InterestInput!
+    ): User
+
+    addInterestToPool(
+      interests: InterestInput!
+    ): Interest
   }
 `;
 

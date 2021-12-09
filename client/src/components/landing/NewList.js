@@ -1,12 +1,11 @@
-import React from 'react';
-import { NewTierList } from '..';
+import { Link } from 'react-router-dom';
 
 export default function NewList() {
   return (
     <section className="new-list">
       {/* Placing TierList Logic Placeholder for now */}
       <h1>READY TO GET STARTED?</h1>
-      <button className="btn">Create Your Own Tier List</button>
+      <Link to="/tierlist" className="btn">Create Your Own Tier List</Link>
     </section>
   )
 }

@@ -5,12 +5,9 @@ const userSchema = new Schema(
   {
     firstName: {
       type: String,
-      required: true,
     },
     lastName: {
       type: String,
-      required: true,
-  
     },
     username: {
       type: String,
@@ -29,9 +26,10 @@ const userSchema = new Schema(
     },
     tierlist: [
       {
-        rank: String,
         interests:[ {
           id: Number,
+          tier: Number,
+          rank: Number,
           content: String,
           image: String
         }]

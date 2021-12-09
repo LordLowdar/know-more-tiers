@@ -21,8 +21,8 @@ const resolvers = {
   },
 
   Mutation: {
-    addUser: async (parent, { firstName, lastName, username, email, password }) => {
-      const user = await User.create({ firstName, lastName, username, email, password });
+    addUser: async (parent, { username, email, password }) => {
+      const user = await User.create({ username, email, password });
       const token = signToken(user);
 
       return { token, user };
@@ -47,13 +47,13 @@ const resolvers = {
     },
 
     // Add a third argument to the resolver to access data in our `context`
-    addTierlist: async (parent, { rank, interests }, context) => {
+    addUserTierlist: async (parent, { input }, context) => {
       // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in  
       if (context.user) {
         return User.findOneAndUpdate(
           { _id: context.user._id },
           {
-            $set: { tierlist: { rank: rank, interests: interests } }
+            $addToSet: { tierlist: input }
           },
           {
             new: true,
@@ -97,12 +97,30 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
-    // Add Interest to Interest pool
-    addInterest: async (parent, { interest }) => {
-      return Interest.create(
-        { interest },
-        { new: true }
-      )
+    // Add Interest to User Tierlist
+    addUserInterest: async (parent, { input }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { interests: input } },
+          { new: true }
+        )
+
+        if (!updatedUser) {
+          throw AuthenticationError('You need to be logged in.');
+        }
+
+        return updatedUser;
+      }
+    },
+    addInterestToPool: async (parent, { input }, context) => {
+      if (context.user) {
+        const interests = await Interest.create(
+          { input }
+        );
+
+        return interests;
+      }
     }
   },
 };

@@ -14,7 +14,7 @@ export default function Hero() {
   return (
     <section className="app-hero">
       <h1 className="app-heading">Connecting people <br />together through the things <br />we all have in common</h1>
-      <img src={wallpaper} alt="placeholder"></img>
+      <img src={wallpaper} alt="Particle Hero"></img>
       {/* <Particles
       id="tsparticles"
       init={particlesInit}
