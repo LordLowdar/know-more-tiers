@@ -18,6 +18,10 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+    // Get Pool of interest from DB
+    interests: async () => {
+      return await Interest.find();
+    }
   },
 
   Mutation: {
@@ -113,13 +117,15 @@ const resolvers = {
         return updatedUser;
       }
     },
-    addInterestToPool: async (parent, { input }, context) => {
+    addInterestToPool: async (parent, { interests }, context) => {
       if (context.user) {
-        const interests = await Interest.create(
-          { input }
-        );
+        await Interest.create(
+          interests
+        )
 
-        return interests;
+        const allInterests = await Interest.find({})
+
+        return allInterests;
       }
     }
   },

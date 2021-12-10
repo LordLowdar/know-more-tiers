@@ -22,11 +22,25 @@ export const LOGIN = gql`
   }
 `;
 
-export const ADD_INTEREST = gql`
-  mutation addInterest($input: InterestInput!) {
-    addInterest(input: $input) {
-      token
-      interest
-    }
+export const ADD_INTEREST_TO_TIERLIST = gql`
+  mutation addUserInterest($input: InterestInput!) {
+  addInterest(input: $input) {
+    id
+    tier
+    rank
+    content
+    image
   }
+}
 `;
+
+export const ADD_INTEREST_TO_POOL = gql`
+  mutation addInterestToPool ($input: InterestInput!) {
+  addInterestToPool(interests: $input) {
+		id
+    tier
+    rank
+    content
+    image
+  }
+}`
