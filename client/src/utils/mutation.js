@@ -21,3 +21,25 @@ export const LOGIN = gql`
     }
   }
 `;
+
+export const ADD_TIERLIST = gql`
+  mutation addTierList($rank: String!, $interests: [interestInput]) {
+    addTierList(rank: $rank, interests: $interests) {
+      user {
+        _id
+        username
+      }
+    }
+  }
+`;
+
+// export const REMOVE_TIERLIST = gql`
+//   mutation removeTierlist() {
+//   removeTierlist() {
+//     user {
+//       _id
+//       username
+//       }
+//     }
+//   }
+// `;

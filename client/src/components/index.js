@@ -2,7 +2,6 @@
 import NewTierList from './NewTierList';
 import Footer from './Footer';
 import NestedList from './NestedList';
-import initialData from './data';
 
 // Landing Components
 import { Hero } from './landing';
@@ -10,4 +9,4 @@ import { Mission } from './landing';
 import { NewList } from './landing';
 import { Demo } from './landing';
 
-export { NewTierList, Footer, NestedList, initialData, Hero, Mission, NewList, Demo };
+export { NewTierList, Footer, NestedList, Hero, Mission, NewList, Demo };

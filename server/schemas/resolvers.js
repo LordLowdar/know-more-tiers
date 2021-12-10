@@ -47,13 +47,14 @@ const resolvers = {
     },
 
     // Add a third argument to the resolver to access data in our `context`
-    addTierlist: async (parent, { rank, interests }, context) => {
+    addTierlist: async (parent, { tierlist }, context) => {
       // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in  
+      // array of objects with rankings and corresponding interests
       if (context.user) {
         return User.findOneAndUpdate(
           { _id: context.user._id },
           {
-            $set: { tierlist: { rank: rank, interests: interests } }
+            $addToSet: { tierlist: tierlist }
           },
           {
             new: true,
@@ -64,6 +65,7 @@ const resolvers = {
         // If user attempts to execute this mutation and isn't logged in, throw an error
         throw new AuthenticationError('You need to be logged in!');
     },
+
     // Set up mutation so a logged in user can only remove their profile and no one else's
     removeUser: async (parent, args, context) => {
       if (context.user) {

@@ -47,7 +47,6 @@ const typeDefs = gql`
       username: String!, 
       email: String!, 
       password: String!): Auth
-
     login(
       email: String!, 
       password: String!): Auth
@@ -61,7 +60,7 @@ const typeDefs = gql`
     removeUser: User
 
     removeTierlist: User
-
+    
     updateUser(
       firstName: String, 
       lastName: String, 
@@ -69,7 +68,6 @@ const typeDefs = gql`
       email: String, 
       password: String): User
   }
-
 `;
 
 module.exports = typeDefs;

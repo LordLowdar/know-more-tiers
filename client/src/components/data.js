@@ -53,37 +53,39 @@ const static_items = [
           content: "SubItem 61 content"
         },
       ]
-    },
-    {
-      id: '2',
-      divId: "S",
-      content: "S",
-      subItems: []
-    },
-    {
-      id: '3',
-      divId: "A",
-      content: "A",
-      subItems: []
-    },
-    {
-      id: '4',
-      divId: "B",
-      content: "B",
-      subItems: []
-    },
-    {
-      id: '5',
-      divId: "C",
-      content: "C",
-      subItems: []
-    },
-    {
-      id: '6',
-      divId: "D",
-      content: "D",
-      subItems: []
-    },
-  ];
+    }]
 
-export default static_items
+const interests = [
+  {
+    id: '2',
+    divId: "S",
+    content: "S",
+    subItems: []
+  },
+  {
+    id: '3',
+    divId: "A",
+    content: "A",
+    subItems: []
+  },
+  {
+    id: '4',
+    divId: "B",
+    content: "B",
+    subItems: []
+  },
+  {
+    id: '5',
+    divId: "C",
+    content: "C",
+    subItems: []
+  },
+  {
+    id: '6',
+    divId: "D",
+    content: "D",
+    subItems: []
+  },
+]
+
+export { static_items, interests }
