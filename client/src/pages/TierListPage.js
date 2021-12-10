@@ -20,7 +20,7 @@ export default function TierListPage() {
 
   const user = data?.me || data?.user || {};
 
-  if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
+  if (Auth.loggedIn() && Auth.getUser().data.username === userParam) {
     return (
       <Router>
         <>
