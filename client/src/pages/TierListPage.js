@@ -10,7 +10,6 @@ import Auth from '../utils/auth';
 
 export default function TierListPage() {
   const { username: userParam } = useParams();
-  console.log('userParam', userParam)
   const { loading, data } = useQuery( userParam ? QUERY_USER : GET_ME, {
     variables: { username: userParam }
   });
