@@ -14,7 +14,6 @@ export default function TierListPage() {
     variables: { username: userParam }
   });
 
-  console.log('data: ', data);
   
 
   const user = data?.me || data?.user || {};
