@@ -117,15 +117,14 @@ const resolvers = {
         return updatedUser;
       }
     },
+    // Add Interest to Interest pool
     addInterestToPool: async (parent, { interests }, context) => {
       if (context.user) {
         await Interest.create(
           interests
         )
 
-        const allInterests = await Interest.find({})
-
-        return allInterests;
+        return await Interest.find({})
       }
     }
   },
