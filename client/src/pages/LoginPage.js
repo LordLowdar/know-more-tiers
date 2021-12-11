@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { LOGIN } from '../utils/mutation';
 import Auth from '../utils/auth.js';
 
+import Auth from '../utils/auth';
+
 export default function LoginPage() {
   const [loginCredentials, setCredentials] = useState({
     email: '',
@@ -24,7 +26,6 @@ export default function LoginPage() {
         },
       });
       if (data) {
-        console.log('log whatevr');
         Auth.login(data.login.token);
         navigate('/tierlist');
       }

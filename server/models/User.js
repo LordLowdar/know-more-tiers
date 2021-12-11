@@ -3,6 +3,12 @@ const bcrypt = require('bcrypt');
 
 const userSchema = new Schema(
   {
+    firstName: {
+      type: String,
+    },
+    lastName: {
+      type: String,
+    },
     username: {
       type: String,
       required: true,
@@ -24,6 +30,8 @@ const userSchema = new Schema(
         interests: [
           {
             id: Number,
+            tier: Number,
+            rank: Number,
             content: String,
             image: String,
           },

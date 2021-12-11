@@ -1,6 +1,7 @@
 import React from 'react';
 import Auth from '../../utils/auth.js';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function NewList() {
   let navigate = useNavigate();
