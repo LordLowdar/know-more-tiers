@@ -59,7 +59,7 @@ const typeDefs = gql`
     
     addTierlist(
       rank: String!
-      interests: [interestInput]
+      interests: [InterestInput]
     ): User
 
     addInterest(

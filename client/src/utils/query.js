@@ -4,12 +4,16 @@ export const GET_ME = gql`
   query me {
     me {
       _id
-      firstName
-      lastName
       username
-      tierlist [
-        interests
-      ]
+      tierlist {
+        interests {
+          id
+          tier
+          rank
+          content
+          image
+        }
+      }
     }
   }
 `;
@@ -24,7 +28,8 @@ export const GET_INTERESTS = gql`
       image
     }
   }
-`
+`;
+
 export const QUERY_USER = gql`
   query user($username: String!) {
     user(username: $username) {
