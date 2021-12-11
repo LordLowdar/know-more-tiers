@@ -1,8 +1,19 @@
 import React from 'react';
 import './sass/App.scss';
-import { ApolloClient, InMemoryCache, createHttpLink, ApolloProvider } from '@apollo/client';
+import {
+  ApolloClient,
+  InMemoryCache,
+  createHttpLink,
+  ApolloProvider,
+} from '@apollo/client';
 import { BrowserRouter as NavRouter, Routes, Route } from 'react-router-dom';
-import { LandingPage, ProfilePage, TierListPage, LoginPage, RegisterPage } from './pages';
+import {
+  LandingPage,
+  ProfilePage,
+  TierListPage,
+  LoginPage,
+  RegisterPage,
+} from './pages';
 import { setContext } from '@apollo/client/link/context';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
@@ -22,7 +33,7 @@ const authLink = setContext((_, { headers }) => {
 });
 
 const client = new ApolloClient({
-link: authLink.concat(httpLink),
+  link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
 
@@ -47,7 +58,5 @@ export default function App() {
         <Footer />
       </div>
     </ApolloProvider>
-  
-
   );
 }
