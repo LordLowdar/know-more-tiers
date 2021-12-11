@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { REGISTER } from '../utils/mutation';
+import Auth from '../utils/auth.js';
 
 export default function RegisterPage() {
   const [newCredentials, setCredentials] = useState({
@@ -12,8 +14,9 @@ export default function RegisterPage() {
   const onChange = (e) =>
     setCredentials({ ...newCredentials, [e.target.name]: e.target.value });
 
+  let navigate = useNavigate();
+
   const registration = async () => {
-    //Add regex and validation here
     if (
       newCredentials.username &&
       newCredentials.email &&
@@ -27,6 +30,11 @@ export default function RegisterPage() {
           password,
         },
       });
+      if (data) {
+        console.log('log whatevr');
+        Auth.login(data.addUser.token);
+        navigate('/tierlist');
+      }
     }
   };
   return (

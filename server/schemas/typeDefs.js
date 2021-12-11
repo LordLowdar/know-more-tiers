@@ -17,7 +17,7 @@ const typeDefs = gql`
   }
 
   type Interest {
-    id: ID,
+    id: ID
     tier: Int
     rank: Int
     content: String
@@ -51,20 +51,14 @@ const typeDefs = gql`
       lastName: String
       username: String!
       email: String!
-      password: String!): Auth
+      password: String!
+    ): Auth
 
-    login(
-      email: String!
-      password: String!): Auth
-    
-    addTierlist(
-      rank: String!
-      interests: [InterestInput]
-    ): User
+    login(email: String!, password: String!): Auth
 
-    addInterest(
-      input: InterestInput
-    ): Interest
+    addTierlist(rank: String!, interests: [InterestInput]): User
+
+    addInterest(input: InterestInput): Interest
 
     removeUser: User
 
@@ -75,11 +69,10 @@ const typeDefs = gql`
       lastName: String
       username: String
       email: String
-      password: String): User
+      password: String
+    ): User
 
-    addInterestToPool(
-      interests: InterestInput!
-    ): [Interest]
+    addInterestToPool(interests: InterestInput!): [Interest]
   }
 `;
 

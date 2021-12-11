@@ -21,7 +21,7 @@ const resolvers = {
     // Get Pool of interest from DB
     interests: async () => {
       return await Interest.find();
-    }
+    },
   },
 
   Mutation: {
@@ -52,21 +52,21 @@ const resolvers = {
 
     // Add a third argument to the resolver to access data in our `context`
     addTierlist: async (parent, { rank, interests }, context) => {
-      // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in  
+      // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
       if (context.user) {
         return User.findOneAndUpdate(
           { _id: context.user._id },
           {
-            $set: { tierlist: { rank: rank, interests: interests } }
+            $set: { tierlist: { rank: rank, interests: interests } },
           },
           {
             new: true,
             runValidators: true,
           }
         );
-        }
-        // If user attempts to execute this mutation and isn't logged in, throw an error
-        throw new AuthenticationError('You need to be logged in!');
+      }
+      // If user attempts to execute this mutation and isn't logged in, throw an error
+      throw new AuthenticationError('You need to be logged in!');
     },
     // Set up mutation so a logged in user can only remove their profile and no one else's
     removeUser: async (parent, args, context) => {
@@ -87,30 +87,28 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     },
     // Allow a user to update their profile information, without changing tier list.
-    updateUser: async (parent, {firstName, lastName, username, email, password}, context) => {
-      if (context.user){
+    updateUser: async (parent, { username, email, password }, context) => {
+      if (context.user) {
         return User.findOneAndUpdate(
-          {_id: context.user._id},
-          {firstName: firstName,
-          lastName: lastName,
-          username: username,
-          email: email,
-          password: password},
-          {new: true}
-        )
+          { _id: context.user._id },
+          {
+            username: username,
+            email: email,
+            password: password,
+          },
+          { new: true }
+        );
       }
       throw new AuthenticationError('You need to be logged in!');
     },
     // Add Interest to Interest pool
     addInterestToPool: async (parent, { interests }, context) => {
       if (context.user) {
-        await Interest.create(
-          interests
-        )
+        await Interest.create(interests);
 
-        return await Interest.find({})
+        return await Interest.find({});
       }
-    }
+    },
   },
 };
 
