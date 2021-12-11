@@ -63,7 +63,7 @@ const typeDefs = gql`
     removeUser: User
 
     removeTierlist: User
-
+    
     updateUser(
       firstName: String
       lastName: String

@@ -6,9 +6,12 @@ const grid = 8;
 const getItemStyle = (isDragging, draggableStyle) => ({
   // keeps styling of sub-items for tier list
   userSelect: "none",
-  padding: grid * 2,
-  display: "inline-flex",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
   width: "120px",
+  fontSize: "1.3rem",
+  textAlign: "center",
 
   // change background colour if dragging
   background: isDragging ? "lightgreen" : "#a17fd5",

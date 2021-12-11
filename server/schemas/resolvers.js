@@ -57,7 +57,7 @@ const resolvers = {
         return User.findOneAndUpdate(
           { _id: context.user._id },
           {
-            $set: { tierlist: { rank: rank, interests: interests } },
+            $addToSet: { tierlist: { rank: rank, interests: interests } },
           },
           {
             new: true,
@@ -68,6 +68,7 @@ const resolvers = {
       // If user attempts to execute this mutation and isn't logged in, throw an error
       throw new AuthenticationError('You need to be logged in!');
     },
+
     // Set up mutation so a logged in user can only remove their profile and no one else's
     removeUser: async (parent, args, context) => {
       if (context.user) {

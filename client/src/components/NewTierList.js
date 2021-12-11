@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import NestedList from "./NestedList";
 import Rows from "./Rows"
-import static_items from "./data";
+import {static_items, interests} from "./data";
 import Saver from "../features/saveTierList/saver"
 
 // a little function to help us with reordering the result
@@ -10,9 +10,15 @@ import Saver from "../features/saveTierList/saver"
 
 export default function Index() {
 
-  const data = { items: static_items }
+  const data = { items: [...static_items, ...interests] }
 
   const [state, setState] = useState(data)
+  const [tiers, setTiers] = useState()
+
+  useEffect(() => {
+    const newTierListState = filterInterests(state.items)
+    setTiers(newTierListState)
+  }, [state])
 
   const reorder = (list, startIndex, endIndex) => {
     const result = Array.from(list);
@@ -44,6 +50,10 @@ export default function Index() {
     width: 200,
   });
 
+  function filterInterests(items){
+    return items.filter((item, i) => i != 0);
+  }
+
   function onDragEnd(result) {
 
     console.log(result);
@@ -55,12 +65,16 @@ export default function Index() {
     const sourceIndex = result.source.index;
     const destIndex = result.destination.index;
 
+    console.log(sourceIndex, destIndex)
+
     // dropping outer item
     if (result.type === "droppableItem") {
       const items = reorder(state.items, sourceIndex, destIndex);
       console.log(items)
       console.log({ items })
+      
       setState({ items });
+      
 
       // dropping sub items
     } else if (result.type === "droppableSubItem") {
@@ -76,6 +90,7 @@ export default function Index() {
       const destSubItems = itemSubItemMap[destParentId];
 
       let newItems = [...state.items];
+      const newTeirListState = filterInterests(newItems)
       console.log(newItems)
 
       // reordering sub-items inside the same parent
@@ -108,7 +123,7 @@ export default function Index() {
           items: newItems
         });
 
-        console.log(state.items)
+
 
       } else {
 
@@ -128,6 +143,8 @@ export default function Index() {
           return item;
         });
 
+
+
         setState({
           items: newItems
         });
@@ -140,32 +157,27 @@ export default function Index() {
 
   // function rendering tier list rankings
   const secondaryItems = state.items.map((item, index) => {
-    if (index === 0) {
-      return null;
-    }
+    if(index === 0) return
 
-    return <Rows key={item.id} draggableId={item.id} index={index} item={item} />
+    return <Rows draggableId={item.id} index={index} item={item} />
   });
 
   // Normally you would want to split things out into separate components.
   // But in this example everything is just done in one place for simplicity
   return (
     <div>
-      <Saver data={currentState} />
+      <Saver data={tiers} />
 
       <DragDropContext onDragEnd={onDragEnd}>
         <Droppable droppableId="droppable" type="droppableItem">
           {(provided, snapshot) => (
             <div
               ref={provided.innerRef}
-              style={{ ...getListStyle(snapshot.isDraggingOver), display: 'flex', height: '700px', width: '-webkit-fill-available', position: 'absolute', left: 0, right: 0 }}
+              style={{ ...getListStyle(snapshot.isDraggingOver), display: 'flex', width: '-webkit-fill-available', position: 'absolute', left: 0, right: 0 }}
             >
 
               {state.items.map((item, index) => {
-                if (index !== 0) {
-                  return null;
-                }
-
+                if (index !== 0) return
                 return <Rows key={item.id} draggableId={item.id} index={index} item={item} />
               })}
               <div>
