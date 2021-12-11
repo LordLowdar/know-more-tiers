@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User } = require('../models');
+const { User, Interest } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -8,8 +8,8 @@ const resolvers = {
       return User.find();
     },
 
-    user: async (parent, { userId }) => {
-      return User.findOne({ _id: userId });
+    user: async (parent, { username }) => {
+      return User.findOne({ username: username });
     },
     // By adding context to our query, we can retrieve the logged in user without specifically searching for them
     me: async (parent, args, context) => {
@@ -17,6 +17,10 @@ const resolvers = {
         return User.findOne({ _id: context.user._id });
       }
       throw new AuthenticationError('You need to be logged in!');
+    },
+    // Get Pool of interest from DB
+    interests: async () => {
+      return await Interest.find();
     },
   },
 
@@ -96,6 +100,14 @@ const resolvers = {
         );
       }
       throw new AuthenticationError('You need to be logged in!');
+    },
+    // Add Interest to Interest pool
+    addInterestToPool: async (parent, { interests }, context) => {
+      if (context.user) {
+        await Interest.create(interests);
+
+        return await Interest.find({});
+      }
     },
   },
 };
