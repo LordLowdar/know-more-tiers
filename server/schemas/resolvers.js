@@ -8,8 +8,8 @@ const resolvers = {
       return User.find();
     },
 
-    user: async (parent, { userId }) => {
-      return User.findOne({ _id: userId });
+    user: async (parent, { username }) => {
+      return User.findOne({ username: username });
     },
     // By adding context to our query, we can retrieve the logged in user without specifically searching for them
     me: async (parent, args, context) => {
@@ -21,8 +21,8 @@ const resolvers = {
   },
 
   Mutation: {
-    addUser: async (parent, { firstName, lastName, username, email, password }) => {
-      const user = await User.create({ firstName, lastName, username, email, password });
+    addUser: async (parent, { username, email, password }) => {
+      const user = await User.create({ username, email, password });
       const token = signToken(user);
 
       return { token, user };
