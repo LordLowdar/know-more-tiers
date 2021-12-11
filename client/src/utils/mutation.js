@@ -25,8 +25,8 @@ export const LOGIN = gql`
 `;
 
 export const ADD_TIERLIST = gql`
-  mutation addTierlist($rank: String!, $Interest: [interestInput] ) {
-    addTierlist(rank: $rank, interests: $Interest ) {
+  mutation addTierlist($rank: String!, $interests: [InterestInput] ) {
+    addTierlist(rank: $rank, interests: $interests) {
         username
         tierlist {
           rank

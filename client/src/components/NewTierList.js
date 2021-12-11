@@ -173,7 +173,7 @@ export default function Index() {
           {(provided, snapshot) => (
             <div
               ref={provided.innerRef}
-              style={{ ...getListStyle(snapshot.isDraggingOver), display: 'flex', height: '700px', width: '-webkit-fill-available', position: 'absolute', left: 0, right: 0 }}
+              style={{ ...getListStyle(snapshot.isDraggingOver), display: 'flex', width: '-webkit-fill-available', position: 'absolute', left: 0, right: 0 }}
             >
 
               {state.items.map((item, index) => {

@@ -57,7 +57,7 @@ const resolvers = {
         return User.findOneAndUpdate(
           { _id: context.user._id },
           {
-            $set: { tierlist: { rank: rank, interests: interests } },
+            $addToSet: { tierlist: { rank: rank, interests: interests } },
           },
           {
             new: true,
