@@ -26,6 +26,7 @@ const userSchema = new Schema(
     },
     tierlist: [
       {
+        rank: String,
         interests:[ {
           id: Number,
           tier: Number,

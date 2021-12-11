@@ -51,13 +51,13 @@ const resolvers = {
     },
 
     // Add a third argument to the resolver to access data in our `context`
-    addUserTierlist: async (parent, { input }, context) => {
+    addTierlist: async (parent, { rank, interests }, context) => {
       // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in  
       if (context.user) {
         return User.findOneAndUpdate(
           { _id: context.user._id },
           {
-            $addToSet: { tierlist: input }
+            $set: { tierlist: { rank: rank, interests: interests } }
           },
           {
             new: true,
@@ -100,22 +100,6 @@ const resolvers = {
         )
       }
       throw new AuthenticationError('You need to be logged in!');
-    },
-    // Add Interest to User Tierlist
-    addUserInterest: async (parent, { input }, context) => {
-      if (context.user) {
-        const updatedUser = await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { interests: input } },
-          { new: true }
-        )
-
-        if (!updatedUser) {
-          throw AuthenticationError('You need to be logged in.');
-        }
-
-        return updatedUser;
-      }
     },
     // Add Interest to Interest pool
     addInterestToPool: async (parent, { interests }, context) => {

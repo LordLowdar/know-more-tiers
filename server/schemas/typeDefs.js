@@ -8,16 +8,12 @@ const typeDefs = gql`
     username: String!
     email: String!
     password: String!
-    tierlist: [Tierlist]
+    tierlist: [Tier]
   }
 
-  type Tierlist {
-    id: ID
+  type Tier {
+    rank: String
     interests: [Interest]
-  }
-
-  input TierlistInput {
-    interests: [InterestInput]
   }
 
   type Interest {
@@ -80,10 +76,6 @@ const typeDefs = gql`
       username: String
       email: String
       password: String): User
-
-    addUserInterest(
-      tierlist: InterestInput!
-    ): User
 
     addInterestToPool(
       interests: InterestInput!
