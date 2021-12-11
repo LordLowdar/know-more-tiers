@@ -25,12 +25,16 @@ export const LOGIN = gql`
 `;
 
 export const ADD_TIERLIST = gql`
-  mutation addTierList($rank: String!, $interests: [interestInput]) {
-    addTierList(rank: $rank, interests: $interests) {
-      user {
-        _id
+  mutation addTierlist($rank: String!, $Interest: [interestInput] ) {
+    addTierlist(rank: $rank, interests: $Interest ) {
         username
-      }
+        tierlist {
+          rank
+          interests {
+            id
+            content
+          }
+        }
     }
   }
 `;
@@ -48,12 +52,12 @@ export const ADD_INTEREST_TO_TIERLIST = gql`
 `;
 
 export const ADD_INTEREST_TO_POOL = gql`
-  mutation addInterestToPool ($input: InterestInput!) {
+  mutation addInterestToPool($input: InterestInput!) {
   addInterestToPool(interests: $input) {
-		id
+    id
     tier
     rank
     content
     image
   }
-}`
+} `
