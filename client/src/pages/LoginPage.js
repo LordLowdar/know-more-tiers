@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { LOGIN } from '../utils/mutation';
 
+import Auth from '../utils/auth';
+
 export default function LoginPage() {
   const [loginCredentials, setCredentials] = useState({
     email: '',
@@ -14,12 +16,20 @@ export default function LoginPage() {
   const loginProcess = async () => {
     if (loginCredentials.email && loginCredentials.password) {
       const { email, password } = loginCredentials;
-      const { data } = await login({
-        variables: {
-          email,
-          password,
-        },
-      });
+      try {
+        const { data } = await login({
+          variables: {
+            email,
+            password,
+          },
+        });
+
+        const token = data.login.token;
+        Auth.login(token);
+
+      } catch (e) {
+        console.log(e);
+      }
     }
   };
   return (

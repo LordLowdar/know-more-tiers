@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react';
-import wallpaper from '../../assets/blue-network.jpg'
+import wallpaper from '../../assets/blue-network.jpg';
 import Particles from 'react-tsparticles';
 
 export default function Hero() {
-
   const particlesInit = (main) => {
     console.log(main);
   };
@@ -13,8 +12,12 @@ export default function Hero() {
 
   return (
     <section className="app-hero">
-      <h1 className="app-heading">Connecting people <br />together through the things <br />we all have in common</h1>
-      <img src={wallpaper} alt="Particle Hero"></img>
+      <h1 className="app-heading">
+        Connecting people <br />
+        together through the things <br />
+        we all have in common
+      </h1>
+      <img src={wallpaper} alt="placeholder"></img>
       {/* <Particles
       id="tsparticles"
       init={particlesInit}
@@ -98,5 +101,5 @@ export default function Hero() {
       }}
     /> */}
     </section>
-  )
+  );
 }
