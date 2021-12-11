@@ -2,10 +2,12 @@
 
 .base {
   display: flex;
-  width: 25%;
+  width: 50%;
   flex-direction: column;
   align-items: center;
   margin: auto;
+  margin-bottom: 10%;
+  margin-top: 10%;
   background-image: $background-fade;
   border-radius: 15px;
 }
@@ -28,6 +30,7 @@
 }
 input {
   display: flex;
+  width: 80%;
 }
 .usernameTitle {
   font-family: $app-links;
