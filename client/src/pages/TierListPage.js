@@ -14,8 +14,6 @@ export default function TierListPage() {
     variables: { username: userParam }
   });
 
-  
-
   const user = data?.me || data?.user || {};
 
   if (Auth.loggedIn() && Auth.getUser().data.username === userParam) {
