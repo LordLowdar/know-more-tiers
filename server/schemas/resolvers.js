@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User } = require('../models');
+const { User, Interest } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -18,6 +18,10 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+    // Get Pool of interest from DB
+    interests: async () => {
+      return await Interest.find();
+    }
   },
 
   Mutation: {
@@ -96,6 +100,16 @@ const resolvers = {
         )
       }
       throw new AuthenticationError('You need to be logged in!');
+    },
+    // Add Interest to Interest pool
+    addInterestToPool: async (parent, { interests }, context) => {
+      if (context.user) {
+        await Interest.create(
+          interests
+        )
+
+        return await Interest.find({})
+      }
     }
   },
 };

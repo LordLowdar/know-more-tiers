@@ -29,6 +29,8 @@ const userSchema = new Schema(
         rank: String,
         interests:[ {
           id: Number,
+          tier: Number,
+          rank: Number,
           content: String,
           image: String
         }]

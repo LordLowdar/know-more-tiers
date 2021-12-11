@@ -5,9 +5,9 @@ const typeDefs = gql`
     _id: ID
     firstName: String
     lastName: String
-    username: String
-    email: String
-    password: String
+    username: String!
+    email: String!
+    password: String!
     tierlist: [Tier]
   }
 
@@ -18,13 +18,17 @@ const typeDefs = gql`
 
   type Interest {
     id: ID,
-    content: String,
+    tier: Int
+    rank: Int
+    content: String
     image: String
   }
 
-  input interestInput {
-    id: ID,
-    content: String,
+  input InterestInput {
+    id: ID
+    tier: Int
+    rank: Int
+    content: String
     image: String
   }
 
@@ -38,6 +42,7 @@ const typeDefs = gql`
     user(username: String!): User
     # Because we have the context functionality in place to check a JWT and decode its data, we can use a query that will always find and return the logged in user's data
     me: User
+    interests: [Interest]
   }
 
   type Mutation {
@@ -52,11 +57,14 @@ const typeDefs = gql`
       email: String!
       password: String!): Auth
     
-      
     addTierlist(
       rank: String!
-      interests: [interestInput]
+      interests: [InterestInput]
     ): User
+
+    addInterest(
+      input: InterestInput
+    ): Interest
 
     removeUser: User
 
@@ -68,8 +76,11 @@ const typeDefs = gql`
       username: String
       email: String
       password: String): User
-  }
 
+    addInterestToPool(
+      interests: InterestInput!
+    ): [Interest]
+  }
 `;
 
 module.exports = typeDefs;

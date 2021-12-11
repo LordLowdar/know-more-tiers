@@ -5,6 +5,27 @@ export const GET_ME = gql`
     me {
       _id
       username
+      tierlist {
+        interests {
+          id
+          tier
+          rank
+          content
+          image
+        }
+      }
+    }
+  }
+`;
+
+export const GET_INTERESTS = gql`
+  query interests {
+    interests {
+      id
+      tier
+      rank
+      content
+      image
     }
   }
 `;
