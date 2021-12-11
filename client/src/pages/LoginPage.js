@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
+import { useNavigate } from 'react-router-dom';
 import { LOGIN } from '../utils/mutation';
+import Auth from '../utils/auth.js';
 
 export default function LoginPage() {
   const [loginCredentials, setCredentials] = useState({
@@ -8,6 +10,7 @@ export default function LoginPage() {
     password: '',
   });
   const [login, { error, data, loading }] = useMutation(LOGIN);
+  let navigate = useNavigate();
   const onChange = (e) =>
     setCredentials({ ...loginCredentials, [e.target.name]: e.target.value });
 
@@ -20,6 +23,11 @@ export default function LoginPage() {
           password,
         },
       });
+      if (data) {
+        console.log('log whatevr');
+        Auth.login(data.login.token);
+        navigate('/tierlist');
+      }
     }
   };
   return (
