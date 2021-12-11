@@ -1,5 +1,6 @@
 import React from 'react';
-import demoImage1 from '../../assets/blue-network.jpg'
+import demoImage1 from '../../assets/Animation1.gif'
+import demoImage2 from '../../assets/connection.jpg'
 
 export default function Demo() {
   return (
@@ -9,12 +10,8 @@ export default function Demo() {
           <img src={demoImage1} alt="demo placeholder"></img>
       </div>
       <div className="section-2">
-          <img src={demoImage1} alt="demo placeholder"></img>
-          <p>When you're done, submit the tier list.</p>
-      </div>
-      <div className="section-3">
-          <p>Find all your matches!</p>
-          <img src={demoImage1} alt="demo placeholder"></img>
+          <img src={demoImage2} alt="demo placeholder"></img>
+          <p>Submit the tier list and find all your matches!</p>
       </div>
     </section>
   )
